@@ -9,9 +9,12 @@
  */
 
 import React from 'react';
+import {QueryClient, QueryClientProvider} from 'react-query';
 import {Provider} from 'react-redux';
 import StackNavigation from './src/navigation/StackNavigation';
 import {store} from './src/redux/configStore';
+
+const queryClient = new QueryClient();
 
 const App = () => {
   return <StackNavigation />;
@@ -19,6 +22,8 @@ const App = () => {
 
 export default () => (
   <Provider store={store}>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
   </Provider>
 );
