@@ -9,11 +9,16 @@
  */
 
 import React from 'react';
-
+import {Provider} from 'react-redux';
 import StackNavigation from './src/navigation/StackNavigation';
+import {store} from './src/redux/configStore';
 
 const App = () => {
   return <StackNavigation />;
 };
 
-export default App;
+export default () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
